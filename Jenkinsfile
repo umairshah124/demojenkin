@@ -8,7 +8,7 @@ agent any
 stages {
 stage('Cloning our Git') {
 steps {
-git 'https://github.com/umairshah124/practice.git'
+git 'https://github.com/umairshah124/demojenkin.git'
 }
 }
 stage('Building our image') {
