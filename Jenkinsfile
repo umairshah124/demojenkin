@@ -1,10 +1,15 @@
 pipeline {
-environment {
-registry = "umairshah379/mydockerrepo"
-registryCredential = 'umairshah379'
-dockerImage = ''
-}
-agent any  stages {
+  environment {
+    registry = "gustavoapolinario/docker-test"
+    registryCredential = ‘dockerhub’
+  }
+  agent any
+  stages {
+    stage('Cloning Git') {
+      steps {
+        git 'https://github.com/umairshah124/demojenkin.git'
+      }
+    }
     stage('Building image') {
       steps{
         script {
@@ -13,6 +18,7 @@ agent any  stages {
       }
     }
   }
+}
 stage('Deploy our image') {
 steps{
 script {
