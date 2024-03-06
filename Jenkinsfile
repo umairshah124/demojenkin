@@ -4,20 +4,15 @@ registry = "umairshah379/mydockerrepo"
 registryCredential = 'umairshah379'
 dockerImage = ''
 }
-agent any
-stages {
-stage('Cloning our Git') {
-steps {
-git 'https://github.com/umairshah124/demojenkin.git'
-}
-}
-stage('Building our image') {
-steps{
-script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-}
-}
+agent any  stages {
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+  }
 stage('Deploy our image') {
 steps{
 script {
