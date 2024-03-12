@@ -9,7 +9,6 @@ pipeline {
     stage('Cloning Git') {
       steps {
         git 'https://github.com/umairshah124/demojenkin.git'
-
       }
     }
     stage('Building image') {
